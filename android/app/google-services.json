@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "596331516461",
+    "firebase_url": "https://chat-26daa.firebaseio.com",
+    "project_id": "chat-26daa",
+    "storage_bucket": "chat-26daa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:596331516461:android:738807bee4f8ff7f60dea4",
+        "android_client_info": {
+          "package_name": "com.junior.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "596331516461-dajv3l5fqfmutg3gsr4dngbhl9p33p3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGY4HWlCo4eo_RkYs50kY15XTIudqVk0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "596331516461-dajv3l5fqfmutg3gsr4dngbhl9p33p3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
