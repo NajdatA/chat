@@ -10,7 +10,7 @@ BaseResponseModel<T> _$BaseResponseModelFromJson<T>(Map<String, dynamic> json) {
   return BaseResponseModel<T>(
     status: json['status'] as String,
     message: json['message'] as String,
-    data: _dataFromJson(json['payload'] as Map<String, dynamic>),
+    payload: _dataFromJson(json['payload'] as Map<String, dynamic>),
   );
 }
 
@@ -19,5 +19,5 @@ Map<String, dynamic> _$BaseResponseModelToJson<T>(
     <String, dynamic>{
       'status': instance.status,
       'message': instance.message,
-      'payload': _dataToJson(instance.data),
+      'payload': _dataToJson(instance.payload),
     };

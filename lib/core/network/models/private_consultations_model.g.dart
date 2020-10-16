@@ -9,12 +9,12 @@ part of private_consultations_model;
 PrivateConsultationsModel<T> _$PrivateConsultationsModelFromJson<T>(
     Map<String, dynamic> json) {
   return PrivateConsultationsModel<T>(
-    _Converter<T>().fromJson(json['private_consultations']),
+    (json['data'] as List)?.map(_Converter<T>().fromJson)?.toList(),
   );
 }
 
 Map<String, dynamic> _$PrivateConsultationsModelToJson<T>(
         PrivateConsultationsModel<T> instance) =>
     <String, dynamic>{
-      'private_consultations': _Converter<T>().toJson(instance.private),
+      'data': instance.private?.map(_Converter<T>().toJson)?.toList(),
     };

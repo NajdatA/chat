@@ -8,16 +8,14 @@ part 'private_consultations_model.g.dart';
 
 @JsonSerializable()
 class PrivateConsultationsModel<T> {
-
-  @JsonKey(name: 'private_consultations')
+  @JsonKey(name: 'data')
   @_Converter()
-  final T private;
+  final List<T> private;
 
   PrivateConsultationsModel(this.private);
 
   factory PrivateConsultationsModel.fromJson(Map<String, dynamic> json) =>
       _$PrivateConsultationsModelFromJson(json);
-
 }
 
 class _Converter<T> implements JsonConverter<T, Object> {
@@ -28,7 +26,7 @@ class _Converter<T> implements JsonConverter<T, Object> {
     print('ttt1 $T');
     if (json is Map<String, dynamic> &&
         T.toString() == ConsultationInfoModel.className) {
-      return PrivateConsultationsModel<ConsultationInfoModel>.fromJson(json) as T;
+      return ConsultationInfoModel.fromJson(json) as T;
     }
     return json as T;
   }

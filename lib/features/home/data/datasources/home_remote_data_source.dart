@@ -29,8 +29,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
         final BaseResponseModel<ConsultationInfoModel> finalResponse =
         BaseResponseModel<ConsultationInfoModel>.fromJson(
             json.decode(response.data));
-        if (finalResponse.data != null) {
-          return finalResponse.data.private;
+        if (finalResponse.payload != null) {
+          print('final ${finalResponse.payload.data.private}');
+          return finalResponse.payload.data.private;
         } else {
           print('e is error');
           throw ServerException();

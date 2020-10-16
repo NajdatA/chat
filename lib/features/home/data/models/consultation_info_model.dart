@@ -9,6 +9,7 @@ part 'consultation_info_model.g.dart';
 class ConsultationInfoModel extends ConsultationInfo {
 
   static final String paginateName = 'PrivateConsultationsModel<ConsultationInfoModel>';
+  static final String payloadName = 'PayloadModel<ConsultationInfoModel>';
   static final String className = 'ConsultationInfoModel';
 
   @JsonKey()

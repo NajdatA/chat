@@ -1,47 +1,45 @@
-library base_response_model;
+library payload_model;
 
-import 'package:chat/core/network/models/paginate_response_model.dart';
-import 'package:chat/core/network/models/payload_model.dart';
 import 'package:chat/core/network/models/private_consultations_model.dart';
 import 'package:chat/features/home/data/models/consultation_info_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'base_response_model.g.dart';
-
-
+part 'payload_model.g.dart';
 
 @JsonSerializable()
-class BaseResponseModel<T> {
-  @JsonKey(name: 'status')
-  final String status;
-  @JsonKey(name: 'message')
-  final String message;
-  @JsonKey(name: 'payload', fromJson: _dataFromJson, toJson: _dataToJson, nullable: true)
-  final PayloadModel<T> payload;
+class PayloadModel<T> {
+  static final String className = 'PayloadModel';
 
-  BaseResponseModel({this.status, this.message, this.payload});
+  @JsonKey(
+    name: 'Private_Consultations',
+    fromJson: _dataFromJson,
+  )
+  final PrivateConsultationsModel<T> data;
 
-  factory BaseResponseModel.fromJson(Map<String, dynamic> json) {
-    return _$BaseResponseModelFromJson<T>(json);
-  }
+  PayloadModel(this.data);
+
+  factory PayloadModel.fromJson(Map<String, dynamic> json) =>
+      _$PayloadModelFromJson(json);
 }
 
-
-
 T _dataFromJson<T>(Map<String, dynamic> data) {
-  print('T is ${T.toString()}');
-  if (T.toString() == ConsultationInfoModel.payloadName) {print('dddd');
+  print('T2 is ${T.toString()}');
+  if (T.toString() == ConsultationInfoModel.payloadName) {
+    print('dddd');
     final x = PayloadModel<ConsultationInfoModel>.fromJson(data) as T;
     print('kokoko');
     return x;
-  } else if (T.toString() == ConsultationInfoModel.className) {print('dddd');
-  final x = ConsultationInfoModel.fromJson(data) as T;
-  print('kokoko');
-  return x;
-  } else if (T.toString() == ConsultationInfoModel.paginateName) {print('dddd');
-  final x = PrivateConsultationsModel<ConsultationInfoModel>.fromJson(data) as T;
-  print('kokoko');
-  return x;
+  } else if (T.toString() == ConsultationInfoModel.className) {
+    print('dddd');
+    final x = ConsultationInfoModel.fromJson(data) as T;
+    print('kokoko');
+    return x;
+  } else if (T.toString() == ConsultationInfoModel.paginateName) {
+    print('dddd');
+    final x =
+        PrivateConsultationsModel<ConsultationInfoModel>.fromJson(data) as T;
+    print('kokoko');
+    return x;
   }
 //  } else if (T.toString() == ContactsModel.className) {
 //    return ContactsModel.fromJson(data) as T;
@@ -66,6 +64,3 @@ T _dataFromJson<T>(Map<String, dynamic> data) {
 //  }
   throw Exception('parse error');
 }
-
-Map<String, dynamic> _dataToJson<T, S, U>(T input, [S other1, U other2]) =>
-    {'data': input};
